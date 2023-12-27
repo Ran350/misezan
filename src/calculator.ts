@@ -1,10 +1,3 @@
-// Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
-
-// tslint:disable:no-duplicate-imports
-// tslint:disable:trailing-comma
-
-import * as assert from "assert";
 import {
   Token,
   alt,
@@ -19,6 +12,7 @@ import {
   str,
   tok,
 } from "typescript-parsec";
+import { misezan } from "./misezan";
 
 enum TokenKind {
   Number,
@@ -26,6 +20,7 @@ enum TokenKind {
   Sub,
   Mul,
   Div,
+  Gan,
   LParen,
   RParen,
   Space,
@@ -37,6 +32,7 @@ const lexer = buildLexer([
   [true, /^\-/g, TokenKind.Sub],
   [true, /^\*/g, TokenKind.Mul],
   [true, /^\//g, TokenKind.Div],
+  [true, /^👁️/g, TokenKind.Gan],
   [true, /^\(/g, TokenKind.LParen],
   [true, /^\)/g, TokenKind.RParen],
   [false, /^\s+/g, TokenKind.Space],
@@ -70,6 +66,8 @@ function applyBinary(
       return first * second[1];
     case "/":
       return first / second[1];
+    case "👁️":
+      return misezan(first, second[1]);
     default:
       throw new Error(`Unknown binary operator: ${second[0].text}`);
   }
@@ -96,10 +94,10 @@ TERM.setPattern(
 /*
 FACTOR
   = TERM
-  = FACTOR ('*' | '/') TERM
+  = FACTOR ('*' | '/' | '👁️') TERM
 */
 FACTOR.setPattern(
-  lrec_sc(TERM, seq(alt(str("*"), str("/")), TERM), applyBinary)
+  lrec_sc(TERM, seq(alt(str("*"), str("/"), str("👁️")), TERM), applyBinary)
 );
 
 /*
@@ -114,4 +112,3 @@ EXP.setPattern(
 export function evaluate(expr: string): number {
   return expectSingleResult(expectEOF(EXP.parse(lexer.parse(expr))));
 }
-
