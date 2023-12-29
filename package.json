@@ -1,16 +1,22 @@
 {
-  "name": "calculator",
+  "name": "@ran350/misezan",
   "version": "1.0.0",
-  "description": "",
-  "main": "calculator.ts",
-  "scripts": {
-    "build": "tsc",
-    "test": "jest"
+  "description": "さや香の M-1 2023 決勝ネタ「見せ算」に対応した五則演算器",
+  "author": "ran350",
+  "bugs": {
+    "url": "https://github.com/Ran350/misezan/issues"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "misezan",
+    "ll1",
+    "parser",
+    "parsec",
+    "typescript"
+  ],
   "license": "MIT",
   "dependencies": {
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
     "typescript-parsec": "^0.3.4"
   },
   "devDependencies": {
@@ -19,5 +25,20 @@
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
+  },
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "url": "https://github.com/Ran350/make10"
+  },
+  "scripts": {
+    "build": "rm -rf build && npx tsc",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.{js,ts}\"",
+    "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"",
+    "format": "prettier --write \"src/**/*.{js,ts}\""
   }
 }
