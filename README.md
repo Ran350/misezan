@@ -1,6 +1,11 @@
 # @ran350/misezan
 
-さや香の M-1 2023 決勝ネタ「見せ算」に対応した五則演算器実装および npm package
+[さや香の M-1 2023 決勝ネタ](https://lemino.docomo.ne.jp/?crid=Y3JpZDovL3BsYWxhLmlwdHZmLmpwL3ZvZC8wMDAwMDAwMDAwX2wwbHFhdGRjbnQ%3D)「見せ算」に対応した五則演算器実装および npm package
+
+## デモ
+
+@ran350/misezan を使用した電卓アプリを以下にて公開している。
+[https://mszn.vercel.app/](https://mszn.vercel.app/)
 
 ## 使い方
 
