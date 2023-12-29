@@ -9,6 +9,16 @@
 
 ## 使い方
 
+.npmrc に以下を記載する。
+ただし、`${GITHUB_ACCESS_TOKEN}` の部分にはGitHub Personal Access Token (PAT)を記載する。
+PATは、[ここ](https://github.com/settings/tokens/new)から`read:packages`権限を付与して作成する。
+また、`GITHUB_ACCESS_TOKEN`は環境変数として設定することもできる。
+
+```
+//npm.pkg.github.com/:_authToken=${GITHUB_ACCESS_TOKEN}
+@ran350:registry=https://npm.pkg.github.com
+```
+
 ```sh
 npm install @ran350/misezan
 ```
