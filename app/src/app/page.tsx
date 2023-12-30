@@ -2,8 +2,6 @@
 
 import { styled } from "@kuma-ui/core";
 import { useState } from "react";
-import { Display } from "./_component/Display";
-import { Inputs } from "./_component/Inputs";
 
 const App = () => {
   const [formula, setFormula] = useState<string[]>(["0"]);
@@ -12,8 +10,8 @@ const App = () => {
     <Wrapper>
       <Calculator>
         <Title>見せ算👁️計算機</Title>
-        <Display formula={formula} />
-        <Inputs formula={formula} setFormula={setFormula} />
+        {/* <Display formula={formula} /> */}
+        {/* <Inputs formula={formula} setFormula={setFormula} /> */}
       </Calculator>
     </Wrapper>
   );

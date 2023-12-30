@@ -42,7 +42,6 @@ const Wrapper = styled.div`
 `;
 
 const ButtonStyle = styled.button`
-
   display: inline-flex;
   align-items: center;
   justify-content: center;

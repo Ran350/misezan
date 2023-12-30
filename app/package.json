@@ -25,10 +25,6 @@
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "eslint": "^8.53.0",
-    "postcss-styled-syntax": "^0.6.1",
-    "stylelint": "^16.1.0",
-    "stylelint-config-recess-order": "^4.4.0",
-    "stylelint-config-standard": "^36.0.0",
     "typescript": "^5.2.2"
   }
 }
