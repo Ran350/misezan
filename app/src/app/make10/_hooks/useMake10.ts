@@ -6,6 +6,9 @@ export const useMake10 = () => {
 
   const answers: string[] = useMemo(() => make10(digits), [digits]);
 
+  const isMaxDigitLength = useMemo(() => digits.length === 5, [digits]);
+  const isMinDigitLength = useMemo(() => digits.length === 2, [digits]);
+
   const changeDigit = useCallback(
     (index: number, value: string) => {
       const newDigits = [...digits];
@@ -16,14 +19,22 @@ export const useMake10 = () => {
   );
 
   const incrementDigit = useCallback(() => {
+    if (digits.length >= 5) return;
+    setInputs([...digits, "0"]);
+  }, [digits]);
+
+  const decrementDigit = useCallback(() => {
     if (digits.length <= 2) return;
     setInputs(digits.slice(0, digits.length - 1));
   }, [digits]);
 
-  const decrementDigit = useCallback(() => {
-    if (digits.length >= 5) return;
-    setInputs([...digits, ""]);
-  }, [digits]);
-
-  return { digits, answers, changeDigit, incrementDigit, decrementDigit };
+  return {
+    digits,
+    answers,
+    isMaxDigitLength,
+    isMinDigitLength,
+    changeDigit,
+    incrementDigit,
+    decrementDigit,
+  };
 };

@@ -2,32 +2,56 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { Minus, Plus } from "lucide-react";
 import { useMake10 } from "../_hooks/useMake10";
 import { Answer } from "./Answer";
-import { Make10Input } from "./Input";
+import { DigitInputs } from "./DigitInputs";
 
 const App = () => {
-  const { digits, answers, changeDigit, incrementDigit, decrementDigit } =
-    useMake10();
+  const {
+    digits,
+    answers,
+    isMaxDigitLength,
+    isMinDigitLength,
+    changeDigit,
+    incrementDigit,
+    decrementDigit,
+  } = useMake10();
 
   return (
-    <Card>
-      <div className="flex">
-        <Button onClick={incrementDigit} disabled={digits.length < 2}>
+    <Card className="p-8 lg:w-1/2 w-full">
+      <div className="mx-auto w-fit flex gap-2">
+        <Button
+          onClick={decrementDigit}
+          disabled={isMinDigitLength}
+          className={cn([
+            "w-8 h-8 p-1 my-3",
+            isMinDigitLength
+              ? "bg-gray-500"
+              : "bg-indigo-400 hover:bg-indigo-500",
+          ])}
+        >
           <Minus />
         </Button>
 
-        <Make10Input digits={digits} onChange={changeDigit} />
+        <DigitInputs digits={digits} onChange={changeDigit} />
 
-        <Button onClick={decrementDigit} disabled={digits.length > 5}>
+        <Button
+          onClick={incrementDigit}
+          disabled={isMaxDigitLength}
+          className={cn([
+            "w-8 h-8 p-1 my-3",
+            isMaxDigitLength ? "bg-gray-500" : "bg-red-400 hover:bg-red-500",
+          ])}
+        >
           <Plus />
         </Button>
       </div>
 
-      <Card>
-        <Answer answers={answers} />
-      </Card>
+      <div className="my-4 border-t-2 border-gray-50" />
+
+      <Answer answers={answers} />
     </Card>
   );
 };

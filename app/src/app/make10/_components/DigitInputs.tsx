@@ -6,7 +6,7 @@ type Props = {
   onChange: (_index: number, _value: string) => void;
 };
 
-export const Make10Input: FC<Props> = (props) => {
+export const DigitInputs: FC<Props> = (props) => {
   const handleChange = (
     digit: number,
     e: ChangeEvent<HTMLInputElement>
@@ -17,14 +17,15 @@ export const Make10Input: FC<Props> = (props) => {
   };
 
   return (
-    <div>
+    <div className="flex gap-2">
       {props.digits.map((digit, i) => (
         <Input
           key={i}
           type="number"
           value={digit}
           onChange={(e) => handleChange(i, e)}
-          autoFocus={true}
+          autoFocus={i === 0}
+          className="pr-0 w-14 h-14 text-2xl text-center"
         />
       ))}
     </div>

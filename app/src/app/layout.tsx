@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "MSZN",
+  title: "さや香のネタ「見せ算」の計算サイト| MSZN",
   description:
     "さや香のM-1決勝ネタ「見せ算」のルールに対応した五則演算計算機。",
 };

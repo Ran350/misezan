@@ -6,19 +6,22 @@ type Props = {
 };
 
 export const Answer: FC<Props> = ({ answers }) => {
-  if (answers.length === 0) {
-    return <p>no answer</p>;
-  }
-
   return (
-    <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
-      <p>found {answers.length} answer(s)</p>
-
-      {answers.map((answer, i) => (
-        <div key={i}>
-          <p>{answer}</p>
-        </div>
-      ))}
-    </ScrollArea>
+    <div className="w-full min-h-96 ">
+      {answers.length === 0 ? (
+        <p className="text-center">no answer</p>
+      ) : (
+        <ScrollArea className="px-[30%] h-96">
+          <p className="w-full mb-2 font-bold">
+            found {answers.length} answer(s)
+          </p>
+          {answers.map((answer, i) => (
+            <div key={i} className="w-full">
+              <p>{answer}</p>
+            </div>
+          ))}
+        </ScrollArea>
+      )}
+    </div>
   );
 };
