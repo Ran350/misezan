@@ -9,6 +9,8 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@kuma-ui/core": "^1.5.5",
+    "@kuma-ui/next-plugin": "^1.1.15",
     "@repo/ui": "*",
     "next": "^14.0.3",
     "react": "^18.2.0",
