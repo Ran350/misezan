@@ -5,9 +5,9 @@ import { buttonVariants } from "./ui/button";
 
 export const Header = () => {
   return (
-    <header className="absolute flex px-8 border-b-2 border-gray-100 items-center justify-between w-full h-14 bg-white">
-      <div className="flex items-center justify-between gap-8 text-gray-400">
-        <nav className="w-auto text-lg font-extrabold tracking-tight text-gray-900">
+    <header className="absolute flex px-5 md:px-8 border-b-2 border-gray-100 items-center justify-between w-full h-14 bg-white">
+      <div className="flex items-center justify-between gap-4 md:gap-8 text-gray-400 text-sm md:text-base">
+        <nav className="w-auto font-extrabold tracking-tight text-gray-900">
           <Link href="/">MSZN</Link>
         </nav>
         <nav className="">
@@ -17,7 +17,7 @@ export const Header = () => {
           <Link href="/make10">make10</Link>
         </nav>
         <nav className="">
-          <Link href="/">見せ算について</Link>
+          <Link href="/">見せ算とは</Link>
         </nav>
       </div>
 

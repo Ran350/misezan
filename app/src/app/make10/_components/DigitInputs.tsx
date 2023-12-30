@@ -17,7 +17,7 @@ export const DigitInputs: FC<Props> = (props) => {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-1 md:gap-2">
       {props.digits.map((digit, i) => (
         <Input
           key={i}
@@ -25,7 +25,7 @@ export const DigitInputs: FC<Props> = (props) => {
           value={digit}
           onChange={(e) => handleChange(i, e)}
           autoFocus={i === 0}
-          className="pr-0 w-14 h-14 text-2xl text-center"
+          className="p-0 md:p-1 md:pr-0 w-11 md:w-14 h-11 md:h-14 text-xl md:text-2xl text-center"
         />
       ))}
     </div>

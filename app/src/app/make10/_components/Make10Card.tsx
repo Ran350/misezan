@@ -20,15 +20,15 @@ const App = () => {
   } = useMake10();
 
   return (
-    <Card className="p-8 lg:w-1/2 w-full">
+    <Card className="p-4 md:p-8 lg:w-1/2 w-11/12 md:w-full">
       <div className="mx-auto w-fit flex gap-2">
         <Button
           onClick={decrementDigit}
           disabled={isMinDigitLength}
           className={cn([
-            "w-8 h-8 p-1 my-3",
+            "w-6 md:w-8 h-6 md:h-8 p-1 my-2 md:my-3",
             isMinDigitLength
-              ? "bg-gray-500"
+              ? "bg-gray-400"
               : "bg-indigo-400 hover:bg-indigo-500",
           ])}
         >
@@ -41,8 +41,8 @@ const App = () => {
           onClick={incrementDigit}
           disabled={isMaxDigitLength}
           className={cn([
-            "w-8 h-8 p-1 my-3",
-            isMaxDigitLength ? "bg-gray-500" : "bg-red-400 hover:bg-red-500",
+            "w-6 md:w-8 h-6 md:h-8 p-1 my-2 md:my-3",
+            isMaxDigitLength ? "bg-gray-400" : "bg-red-400 hover:bg-red-500",
           ])}
         >
           <Plus />
