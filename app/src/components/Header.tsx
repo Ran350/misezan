@@ -5,7 +5,7 @@ import { buttonVariants } from "./ui/button";
 
 export const Header = () => {
   return (
-    <header className="flex px-8 border-b-2 border-gray-100 items-center justify-between w-full h-14 bg-navy">
+    <header className="absolute flex px-8 border-b-2 border-gray-100 items-center justify-between w-full h-14 bg-white">
       <div className="flex items-center justify-between gap-8 text-gray-400">
         <nav className="w-auto text-lg font-extrabold tracking-tight text-gray-900">
           <Link href="/">MSZN</Link>
