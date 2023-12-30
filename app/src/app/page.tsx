@@ -23,22 +23,22 @@ export default App;
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
 `;
 
 const Calculator = styled.div`
-  margin: 0 auto;
-  padding: 1rem;
   min-width: 30rem;
+  padding: 1rem;
+  margin: 0 auto;
 `;
 
 const Title = styled.div`
   padding: 0;
   margin: 0;
-  text-align: center;
   font-family: t("font.kosugi_maru");
   font-size: 1.3rem;
   color: t("colors.black");
+  text-align: center;
 `;

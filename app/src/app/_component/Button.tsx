@@ -32,39 +32,36 @@ export const CEButton: FC<Props> = (props) => (
 );
 
 const Wrapper = styled.div`
-  text-shadow: 1px 1px 1px t("colors.white");
+  display: block;
+  width: 4rem;
+  height: 4rem;
   padding: 0;
   margin: 0;
   text-align: center;
-  height: 4rem;
-  width: 4rem;
-  display: block;
+  text-shadow: 1px 1px 1px t("colors.white");
 `;
 
 const ButtonStyle = styled.button`
-  font-family: arial, sans-serif;
-  font-weight: bold;
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 0 t("colors.white"));
-  color: t("colors.navy");
-  background-color: t("colors.background");
 
-  margin: 0;
-  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   padding: 0;
+  margin: 0;
+  font-family: arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: t("colors.navy");
+  text-shadow: 1px 1px 0 t("colors.white"));
+  cursor: pointer;
+  background-color: t("colors.background");
+  border: 0;
   border-radius: 1rem;
   box-shadow:
     -5px -5px 20px t("colors.white"),
     5px 5px 20px t("colors.shadow");
-  height: 100%;
-  width: 100%;
-
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  cursor: pointer;
-
   transition: all 0.2s ease-in-out;
 
   &:hover {

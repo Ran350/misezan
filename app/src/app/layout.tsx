@@ -24,11 +24,11 @@ export default function RootLayout({
 
 const BodyStyle = styled.body`
   body {
-    font-family: arial, sans-serif;
-    background-color: t("colors.background");
+    max-height: 100vh;
     padding: 0;
     margin: 0;
-    max-height: 100vh;
+    font-family: arial, sans-serif;
     font-size: 16px;
+    background-color: t("colors.background");
   }
 `;
