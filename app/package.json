@@ -10,6 +10,7 @@
     "lint:fix": "eslint src --max-warnings 0 --fix && stylelint **/*.tsx --fix"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
     "autoprefixer": "^10.4.16",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

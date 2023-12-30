@@ -10,12 +10,10 @@ export const Display: FC<Props> = ({ formula }) => {
 
   return (
     <section className="w-21rem my-4 text-1.5xl text-navy">
-      <div className="p-0 mx-4 mb-4 text-right text-shadow-white">
-        {formula}
-      </div>
+      <div className="p-0 mx-4 mb-4 text-right text-xl">{formula}</div>
 
-      <div className="box-sizing:border-box flex justify-between w-full p-4 text-shadow-white bg-background border-0 rounded-2xl shadow-inner shadow-white">
-        <div className="font-bold">=</div>
+      <div className="flex justify-between h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-xl">
+        <div className="">=</div>
         <div>{result}</div>
       </div>
     </section>
