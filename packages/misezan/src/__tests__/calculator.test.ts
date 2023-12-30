@@ -1,4 +1,4 @@
-import assert = require("assert");
+import { assert, test } from "vitest";
 import { evaluate } from "../calculator";
 
 test(`Parser: calculator`, () => {
