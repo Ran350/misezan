@@ -1,0 +1,6 @@
+{
+    "stylelint.validate": [
+        "typescript",
+        "typescriptreact"
+    ]
+}

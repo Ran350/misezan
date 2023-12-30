@@ -1,3 +1,5 @@
+"use client";
+
 import { styled } from "@kuma-ui/core";
 import { useState } from "react";
 import { Display } from "./_component/Display";

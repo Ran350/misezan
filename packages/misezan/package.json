@@ -37,8 +37,7 @@
   "scripts": {
     "build": "rm -rf build && npx tsc",
     "test": "vitest run --root src",
-    "lint": "eslint . --max-warnings 0 --ignore-path ../../.gitignore",
-    "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"",
-    "format": "prettier --write \"src/**/*.{js,ts}\""
+    "lint": "eslint src --max-warnings 0",
+    "lint:fix": "eslint --fix \"src/**/*.{js,ts}\""
   }
 }

@@ -1,20 +1,19 @@
 import { createTheme } from "@kuma-ui/core";
-import { Kosugi_Maru } from "next/font/google";
 
 const theme = createTheme({
   colors: {
+    white: "#FFF",
     black: "#2F4858",
     navy: "#3F4061",
     red: "#C36883",
     yellow: "#F58A76",
     shadow: "#BABECC",
-    white: "#FFF",
     background: "#EBECF0",
   },
-  fonts: {
-    kosugi_maru: Kosugi_Maru({ subsets: ["latin"], weight: "400" }).style
-      .fontFamily,
-  },
+  // fonts: {
+  //   kosugi_maru: Kosugi_Maru({ subsets: ["latin"], weight: "400" }).style
+  //     .fontFamily,
+  // },
 });
 
 type UserTheme = typeof theme;
