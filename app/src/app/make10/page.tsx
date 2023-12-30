@@ -9,7 +9,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <main className="flex items-center justify-center w-full">
+      <main className="flex flex-col items-center justify-center w-full">
+        <p className="text-bold text-4xl my-8">Comming Soon!!!</p>
         <Make10Card />
       </main>
     </div>

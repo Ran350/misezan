@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <header className="absolute flex px-5 md:px-8 border-b-2 border-gray-100 items-center justify-between w-full h-14 bg-white">
       <div className="flex items-center justify-between gap-4 md:gap-8 text-gray-400 text-sm md:text-base">
-        <nav className="w-auto font-extrabold tracking-tight text-gray-900">
+        <nav className="font-extrabold tracking-tight text-gray-900">
           <Link href="/">MSZN</Link>
         </nav>
         <nav className="">
