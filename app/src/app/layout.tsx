@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { Header } from "@/components/Header";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="max-h-screen p-0 m-0 font-arial font-sans text-base bg-whiteGray">
+        <Header />
         {children}
       </body>
     </html>
