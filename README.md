@@ -1,86 +1,81 @@
-# @ran350/misezan
+# Turborepo starter
 
-[さや香の M-1 2023 決勝ネタ](https://lemino.docomo.ne.jp/?crid=Y3JpZDovL3BsYWxhLmlwdHZmLmpwL3ZvZC8wMDAwMDAwMDAwX2wwbHFhdGRjbnQ%3D)「見せ算」に対応した五則演算器実装および npm package
+This is an official starter Turborepo.
 
-## デモ
+## Using this example
 
-@ran350/misezan を使用した電卓アプリを以下にて公開している。
-[https://mszn.vercel.app/](https://mszn.vercel.app/)
-
-## 使い方
-
-.npmrc に以下を記載する。
-ただし、`${GITHUB_ACCESS_TOKEN}` の部分にはGitHub Personal Access Token (PAT)を記載する。
-PATは、[ここ](https://github.com/settings/tokens/new)から`read:packages`権限を付与して作成する。
-また、`GITHUB_ACCESS_TOKEN`は環境変数として設定することもできる。
-
-```
-//npm.pkg.github.com/:_authToken=${GITHUB_ACCESS_TOKEN}
-@ran350:registry=https://npm.pkg.github.com
-```
+Run the following command:
 
 ```sh
-npm install @ran350/misezan
+npx create-turbo@latest
 ```
 
-```ts
-import { evaluate } from "misezan-evaluator";
+## What's inside?
 
-evaluate("1見せ1"); // 0
-evaluate("1見せ2"); // 2
-evaluate("6見せ9"); // 11
-evaluate("2見せ5"); // 1.1
-evaluate("1見せ100"); // 83
-```
+This Turborepo includes the following packages/apps:
 
-## 見せ算のルール
+### Apps and Packages
 
-> M-1 2023 で披露されたルールに対応しています。 見る数と見られる数は入れ替えても同じ答えとしています。
->
-> 〈基本のルール〉
->
-> 1 見せ 1 = 0
->
-> 同じ数字を見せると 0 になる。
-> （自分と同じ格好の人を見ると気まずくなりその場を離れるため。）
->
-> 1 見せ 2 = 2
->
-> 小さい数字に大きい数字を見せると大きい数字が残る。
-> （大きい人を見るとこわくて逃げたくなるため。）
->
-> 〈似た形状の数字の組についての応用ルール〉
->
-> 6 見せ 9 = 11
->
-> （お互いが生き別れの兄弟と勘違いして近づいてしまうため。）
->
-> 2 見せ 5 = 1.1
->
-> （お互いが生き別れの兄弟と勘違いして近寄るがよく見ると全然違うことに気付きびっくりして携帯「.」を落としてしまうため。）
->
-> [EnigmaGAMEIN](https://gamein.enigmahouse.jp/g/sprint-answer/misezan)
+- `docs`: a [Next.js](https://nextjs.org/) app
+- `web`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-### 演算の優先順位
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-M-1 2023 決勝ネタで演算の優先順位は未定義であったため、
-本実装では、見せ算演算は乗除算と同じ優先順位としている。
+### Utilities
 
-### 拡張バッカス・ナウア記法による定義
+This Turborepo has some additional tools already setup for you:
 
-見せ算演算子を `👁️` とすると、五則演算の構文は以下のような定義になる。
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
+
+### Build
+
+To build all apps and packages, run the following command:
 
 ```
-TERM
-    = NUMBER
-    = ('+' | '-') TERM
-    = '(' EXP ')'
-
-FACTOR
-    = TERM
-    = FACTOR ('*' | '/' | '👁️') TERM
-
-EXP
-    = FACTOR
-    = EXP ('+' | '-') FACTOR
+cd my-turborepo
+pnpm build
 ```
+
+### Develop
+
+To develop all apps and packages, run the following command:
+
+```
+cd my-turborepo
+pnpm dev
+```
+
+### Remote Caching
+
+Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+
+```
+cd my-turborepo
+npx turbo login
+```
+
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+
+```
+npx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
+- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
+- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
+- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
+- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
