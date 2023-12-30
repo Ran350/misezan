@@ -14,6 +14,7 @@ import {
 } from "typescript-parsec";
 import { misezan } from "./misezan";
 
+/* eslint-disable no-unused-vars */
 enum TokenKind {
   Number,
   Add,
@@ -25,11 +26,12 @@ enum TokenKind {
   RParen,
   Space,
 }
+/* eslint-enable no-unused-vars */
 
 const lexer = buildLexer([
   [true, /^\d+(\.\d+)?/g, TokenKind.Number],
   [true, /^\+/g, TokenKind.Add],
-  [true, /^\-/g, TokenKind.Sub],
+  [true, /^-/g, TokenKind.Sub],
   [true, /^\*/g, TokenKind.Mul],
   [true, /^\//g, TokenKind.Div],
   [true, /^👁️/g, TokenKind.Gan],

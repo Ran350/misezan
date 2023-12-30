@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import "vitest";
 
 interface CustomMatchers<R = unknown> {

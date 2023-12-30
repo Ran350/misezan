@@ -36,8 +36,8 @@
   },
   "scripts": {
     "build": "rm -rf build && npx tsc",
-    "test": "vitest --root src --run",
-    "lint": "eslint \"src/**/*.{js,ts}\"",
+    "test": "vitest run --root src",
+    "lint": "eslint . --max-warnings 0 --ignore-path ../../.gitignore",
     "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"",
     "format": "prettier --write \"src/**/*.{js,ts}\""
   }

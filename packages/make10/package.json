@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "vitest --run"
+    "lint": "eslint . --max-warnings 0",
+    "test": "vitest run"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
     "@types/eslint": "^8.56.0",
     "@types/node": "^20.10.6",
     "eslint": "^8.56.0",
