@@ -1,8 +1,8 @@
 {
-  "name": "make10",
+  "name": "@repo/make10",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run"

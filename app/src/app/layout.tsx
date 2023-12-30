@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "見せ算👁️計算機",
+  title: "MSZN",
   description:
     "さや香のM-1決勝ネタ「見せ算」のルールに対応した五則演算計算機。",
 };
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="max-h-screen p-0 m-0 font-arial font-sans text-base bg-whiteGray">
+      <body className="max-h-screen p-0 m-0 font-arial font-sans text-base bg-gray-50">
         <Header />
         {children}
       </body>

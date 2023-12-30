@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <div>
-      <h1>Page</h1>
+      <h1>見せ算</h1>
     </div>
   );
 }
