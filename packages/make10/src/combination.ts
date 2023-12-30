@@ -58,7 +58,7 @@ function reduceDigits(nums: string[]): string[][] {
       const trues = nums.filter((num, i) => flags[i]);
       const falses = nums.filter((num, i) => !flags[i]);
 
-      const rpn = operate(trues[0], trues[1]);
+      const rpn = operate(trues.at(0) as string, trues.at(1) as string);
 
       result.push([rpn, ...falses]);
     }
