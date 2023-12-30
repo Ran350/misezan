@@ -1,4 +1,3 @@
-import { styled } from "@kuma-ui/core";
 import type { Dispatch, FC, SetStateAction } from "react";
 import { ACButton, CEButton, NumberButton, OperatorButton } from "./Button";
 
@@ -17,7 +16,7 @@ export const Inputs: FC<Props> = ({ formula, setFormula }) => {
   };
 
   return (
-    <Grid>
+    <section className="grid grid-cols-4 gap-6 max-w-40rem">
       {/* 1st line */}
       <ACButton text="AC" onClick={() => setFormula(["0"])} />
       <CEButton
@@ -54,13 +53,6 @@ export const Inputs: FC<Props> = ({ formula, setFormula }) => {
       <NumberButton text="(" onClick={() => onClickNumber("(")} />
       <NumberButton text=")" onClick={() => onClickNumber(")")} />
       <OperatorButton text={"÷"} onClick={() => onClickNumber("/")} />
-    </Grid>
+    </section>
   );
 };
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1.5rem;
-  max-width: 40rem;
-`;

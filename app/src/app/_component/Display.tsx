@@ -1,4 +1,3 @@
-import { styled } from "@kuma-ui/core";
 import { evaluate } from "@ran350/misezan";
 import type { FC } from "react";
 
@@ -10,41 +9,15 @@ export const Display: FC<Props> = ({ formula }) => {
   const result = evaluate(formula.join("")) ?? "";
 
   return (
-    <Wrapper>
-      <Formula>{formula}</Formula>
-      <Result>
-        <div>=</div>
+    <section className="w-21rem my-4 text-1.5xl text-navy">
+      <div className="p-0 mx-4 mb-4 text-right text-shadow-white">
+        {formula}
+      </div>
+
+      <div className="box-sizing:border-box flex justify-between w-full p-4 text-shadow-white bg-background border-0 rounded-2xl shadow-inner shadow-white">
+        <div className="font-bold">=</div>
         <div>{result}</div>
-      </Result>
-    </Wrapper>
+      </div>
+    </section>
   );
 };
-
-const Wrapper = styled.div`
-  width: 21rem;
-  margin: 1rem 0;
-  font-size: 1.5rem;
-  color: t("colors.navy");
-`;
-
-const Formula = styled.div`
-  padding: 0 1.5rem;
-  margin-bottom: 1rem;
-  text-align: right;
-  text-shadow: 1px 1px 0 t("colors.white");
-`;
-
-const Result = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1rem 1.5rem;
-  text-shadow: 1px 1px 0 t("colors.white");
-  background-color: t("colors.background");
-  border: 0;
-  border-radius: 2rem;
-  box-shadow:
-    inset 2px 2px 5px t("colors.shadow"),
-    inset -5px -5px 10px t("colors.white");
-`;

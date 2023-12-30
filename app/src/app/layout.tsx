@@ -1,6 +1,6 @@
-import { styled } from "@kuma-ui/core";
-import { KumaRegistry } from "@kuma-ui/next-plugin/registry";
 import type { Metadata } from "next";
+
+import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "見せ算👁️計算機",
@@ -15,18 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <BodyStyle>
-        <KumaRegistry>{children}</KumaRegistry>
-      </BodyStyle>
+      <body className="max-h-screen p-0 m-0 font-arial font-sans text-base bg-whiteGray">
+        {children}
+      </body>
     </html>
   );
 }
-
-const BodyStyle = styled.body`
-  max-height: 100vh;
-  padding: 0;
-  margin: 0;
-  font-family: arial, sans-serif;
-  font-size: 16px;
-  background-color: t("colors.background");
-`;
