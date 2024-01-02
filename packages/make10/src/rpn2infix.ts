@@ -1,5 +1,5 @@
-import { Rpn } from "./RPN";
-import { Operator, operator } from "./operator";
+import { operator, type Operator } from "./operator";
+import { Rpn } from "./rpn";
 
 /**
  * @description RPN を中置記法に変換
