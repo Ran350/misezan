@@ -6,7 +6,7 @@ import { rpn2infix } from "./rpn2infix";
  * @description solve make10 and return all answers
  * @param inputs Numeric value of type string
  * @param allowableHugeTimeComplexity false: throw the error when inputs.length is not [2,5].
- * @example ["1","2","3","4"] -> ["((1+2)+3)+4", ...]
+ * @example make10(6,8,9,9) -> ["(6👁️9)-(9-8)", ...]
  */
 export function make10(
   inputs: number[],
