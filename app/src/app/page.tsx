@@ -7,20 +7,31 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TypographyH4, TypograpyCode } from "@/components/ui/typograpy";
+import {
+  InlineBlockSpan,
+  TypographyH4,
+  TypograpyCode,
+} from "@/components/ui/typograpy";
 import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="mx-0 md:mx-auto py-16 md:py-20 px-[3%] md:w-2/3 flex flex-col gap-4 md:gap-8">
+    <main className="mx-0 md:mx-auto py-4 md:py-8 px-[3%] md:w-2/3 flex flex-col gap-4 md:gap-8">
       <Card>
         <CardHeader>
           <CardTitle className="italic text-center">
-            令和の時代に四則は少ないだろう
+            <InlineBlockSpan>令和の時代に</InlineBlockSpan>
+            <InlineBlockSpan>四則は少ないだろう</InlineBlockSpan>
           </CardTitle>
           <CardDescription className="text-center">
-            <p>MSZNプロジェクトは見せ算の普及に貢献することを目的とし、</p>
-            <p>見せ算に対応したいくつかのツールセットを提供する。</p>
+            <InlineBlockSpan>MSZNプロジェクトは</InlineBlockSpan>
+            <InlineBlockSpan>
+              見せ算の普及に貢献することを目的とし、
+            </InlineBlockSpan>
+            <InlineBlockSpan>
+              見せ算に対応したいくつかのツールセットを
+            </InlineBlockSpan>
+            <InlineBlockSpan>提供する。</InlineBlockSpan>
           </CardDescription>
         </CardHeader>
         <CardFooter>
@@ -40,7 +51,7 @@ export default function Page() {
         </CardFooter>
       </Card>
 
-      <Card>
+      <Card id="about-misezan">
         <CardHeader>
           <CardTitle>見せ算とは</CardTitle>
           <CardDescription>

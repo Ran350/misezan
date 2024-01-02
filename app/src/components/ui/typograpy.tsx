@@ -36,7 +36,7 @@ export function TypographyH4(props: {
 }) {
   return (
     <h4
-      className={`scroll-m-20 text-xl font-semibold tracking-tight ${
+      className={`scroll-m-20 text-lg md:text-xl font-semibold tracking-tight ${
         props.className || ""
       }`}
     >
@@ -58,4 +58,11 @@ export function TypograpyCode(props: {
       {props.children}
     </p>
   );
+}
+
+export function InlineBlockSpan(props: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return <span className="inline-block">{props.children}</span>;
 }
