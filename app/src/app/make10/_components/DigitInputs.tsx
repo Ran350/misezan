@@ -2,8 +2,8 @@ import { Input } from "@/components/ui/input";
 import { ChangeEvent, FC } from "react";
 
 type Props = {
-  digits: string[];
-  onChange: (_index: number, _value: string) => void;
+  digits: number[];
+  onChange: (_index: number, _value: number) => void;
 };
 
 export const DigitInputs: FC<Props> = (props) => {
@@ -13,7 +13,7 @@ export const DigitInputs: FC<Props> = (props) => {
   ): void => {
     const val = e.currentTarget.value;
     if (!val.match(/^[0-9]+$/)) return; // 1桁の数字以外は入力できないように
-    props.onChange(digit, val);
+    props.onChange(digit, Number(val));
   };
 
   return (
@@ -23,6 +23,8 @@ export const DigitInputs: FC<Props> = (props) => {
           key={i}
           type="number"
           value={digit}
+          min={0}
+          max={9}
           onChange={(e) => handleChange(i, e)}
           autoFocus={i === 0}
           className="p-0 md:p-1 md:pr-0 w-11 md:w-14 h-11 md:h-14 text-xl md:text-2xl text-center"

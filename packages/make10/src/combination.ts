@@ -1,10 +1,13 @@
+import { Rpn } from "./rpn";
+import { operator } from "./operator";
+
 /**
  * @description 演算の全ての組み合わせを RPN で返す
- * @param ["1","2","3","4"]
- * @returns ["1 2 + 3 + 4 +", ...]
+ * @param [1,2,3,4]
+ * @returns [1,2,"+",3,"+",4,"+"], ...]
  */
-export function allCombinations(nums: string[]): string[] {
-  let combs = reduceDigits(nums);
+export function allCombinations(nums: number[]): Rpn[] {
+  let combs = reduceDigits(nums.map((num) => [num]));
 
   for (let i = 0; i < nums.length - 2; i++) {
     combs = combs.map((comb) => reduceDigits(comb)).flat();
@@ -36,29 +39,35 @@ function nC2(num: number): boolean[][] {
 }
 
 /**
- * @description n 個の数字から 2 つ選んで n-1 個の数字に
- * @param ["1","2","3"]
- * @returns [["1 2 + ","3"],["1 2 - ","3"],...]
+ * @description n 個のRPNから 2 つ選んで n-1 個のRPNに
+ * @param [1,2,3]
+ * @returns [ [[1,2,"+"],3], [[1,2,"-"],3], ...]
  */
-function reduceDigits(nums: string[]): string[][] {
-  const sep = " ";
-  const rpnOperates = [
-    (a: string, b: string) => a + sep + b + sep + "+",
-    (a: string, b: string) => a + sep + b + sep + "-",
-    (a: string, b: string) => b + sep + a + sep + "-",
-    (a: string, b: string) => a + sep + b + sep + "*",
-    (a: string, b: string) => a + sep + b + sep + "/",
-    (a: string, b: string) => b + sep + a + sep + "/",
+function reduceDigits(nums: Rpn[]): Rpn[][] {
+  const rpnOperates: Array<(_a: Rpn, _b: Rpn) => Rpn> = [
+    (a, b) => [...a, ...b, operator.plus],
+    (a, b) => [...a, ...b, operator.minus],
+    (a, b) => [...b, ...a, operator.minus],
+    (a, b) => [...a, ...b, operator.times],
+    (a, b) => [...a, ...b, operator.divide],
+    (a, b) => [...b, ...a, operator.divide],
+    (a, b) => [...a, ...b, operator.mise],
+    (a, b) => [...b, ...a, operator.mise],
   ];
 
-  const result: string[][] = [];
+  const result: Rpn[][] = [];
 
   for (const flags of nC2(nums.length)) {
     for (const operate of rpnOperates) {
-      const trues = nums.filter((num, i) => flags[i]);
-      const falses = nums.filter((num, i) => !flags[i]);
+      const trues = nums.filter((_, i) => flags[i]);
+      const falses = nums.filter((_, i) => !flags[i]);
 
-      const rpn = operate(trues.at(0) as string, trues.at(1) as string);
+      const a = trues.at(0);
+      const b = trues.at(1);
+      if (a === undefined || b === undefined) {
+        throw new Error("a and b must be number value");
+      }
+      const rpn: Rpn = operate(a, b);
 
       result.push([rpn, ...falses]);
     }

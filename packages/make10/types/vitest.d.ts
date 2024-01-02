@@ -1,11 +1,11 @@
-/* eslint-disable no-unused-vars */
 import "vitest";
 
 interface CustomMatchers<R = unknown> {
-  toBeEvalResult<T>(expected: T): R;
+  toBeMisezanEval<T>(expected: T): R;
 }
 
 declare module "vitest" {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interface Assertion<T = any> extends CustomMatchers<T> {}
   interface AsymmetricMatchersContaining extends CustomMatchers {}
 }

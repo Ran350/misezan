@@ -2,7 +2,7 @@ import { make10 } from "@repo/make10";
 import { useCallback, useMemo, useState } from "react";
 
 export const useMake10 = () => {
-  const [digits, setInputs] = useState<string[]>(["1", "1", "5", "8"]);
+  const [digits, setInputs] = useState<number[]>([1, 1, 5, 8]);
 
   const answers: string[] = useMemo(() => make10(digits), [digits]);
 
@@ -10,7 +10,7 @@ export const useMake10 = () => {
   const isMinDigitLength = useMemo(() => digits.length === 2, [digits]);
 
   const changeDigit = useCallback(
-    (index: number, value: string) => {
+    (index: number, value: number) => {
       const newDigits = [...digits];
       newDigits[index] = value;
       setInputs(newDigits);
@@ -20,7 +20,7 @@ export const useMake10 = () => {
 
   const incrementDigit = useCallback(() => {
     if (digits.length >= 5) return;
-    setInputs([...digits, "0"]);
+    setInputs([...digits, 0]);
   }, [digits]);
 
   const decrementDigit = useCallback(() => {
