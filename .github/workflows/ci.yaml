@@ -1,23 +1,38 @@
-name: Code Check
-
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  - push
+  - pull_request
+
+permissions: read-all
 
 jobs:
-  check:
-    runs-on: ubuntu-22.04
+  ci:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Launch Turbo Remote Cache Server
+        uses: dtinth/setup-github-actions-caching-for-turbo@v1.1.0
+
+      - name: Install npm
+        uses: npm/action-setup@v2
         with:
-          node-version: "20"
+          version: 8
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
           cache: "npm"
-      - run: npm ci
-      - run: npm run format:check
-      - run: npm run lint
-      - run: npm run test
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Format Check
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
