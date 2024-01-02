@@ -1,0 +1,43 @@
+{
+  "name": "@repo/misezan",
+  "version": "1.0.3",
+  "description": "さや香の M-1 2023 決勝ネタ「見せ算」に対応した五則演算器",
+  "author": "ran350",
+  "bugs": {
+    "url": "https://github.com/Ran350/misezan/issues"
+  },
+  "keywords": [
+    "misezan",
+    "ll1",
+    "parser",
+    "parsec",
+    "typescript"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "typescript-parsec": "^0.3.4"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@types/eslint": "^8.56.0",
+    "@types/node": "^20.10.6",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0"
+  },
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "url": "https://github.com/Ran350/misezan"
+  },
+  "scripts": {
+    "build": "rm -rf build && npx tsc",
+    "test": "vitest run --root src",
+    "lint": "eslint src --max-warnings 0",
+    "lint:fix": "eslint --fix \"src/**/*.{js,ts}\""
+  }
+}
