@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src --max-warnings 0 && stylelint **/*.tsx",
-    "lint:fix": "eslint src --max-warnings 0 --fix && stylelint **/*.tsx --fix"
+    "lint": "eslint src --max-warnings 0",
+    "lint:fix": "eslint src --max-warnings 0 --fix"
   },
   "dependencies": {
     "@radix-ui/react-scroll-area": "^1.0.5",
