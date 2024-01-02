@@ -57,7 +57,7 @@ function applyUnary(value: [Token<TokenKind>, number]): number {
 
 function applyBinary(
   first: number,
-  second: [Token<TokenKind>, number]
+  second: [Token<TokenKind>, number],
 ): number {
   switch (second[0].text) {
     case "+":
@@ -89,8 +89,8 @@ TERM.setPattern(
   alt(
     apply(tok(TokenKind.Number), applyNumber),
     apply(seq(alt(str("+"), str("-")), TERM), applyUnary),
-    kmid(str("("), EXP, str(")"))
-  )
+    kmid(str("("), EXP, str(")")),
+  ),
 );
 
 /*
@@ -99,7 +99,7 @@ FACTOR
   = FACTOR ('*' | '/' | '👁️') TERM
 */
 FACTOR.setPattern(
-  lrec_sc(TERM, seq(alt(str("*"), str("/"), str("👁️")), TERM), applyBinary)
+  lrec_sc(TERM, seq(alt(str("*"), str("/"), str("👁️")), TERM), applyBinary),
 );
 
 /*
@@ -108,7 +108,7 @@ EXP
   = EXP ('+' | '-') FACTOR
 */
 EXP.setPattern(
-  lrec_sc(FACTOR, seq(alt(str("+"), str("-")), FACTOR), applyBinary)
+  lrec_sc(FACTOR, seq(alt(str("+"), str("-")), FACTOR), applyBinary),
 );
 
 export function evaluate(expr: string): number {
