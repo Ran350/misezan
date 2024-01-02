@@ -9,7 +9,7 @@ import { rpn2infix } from "./rpn2infix";
  * @example ["1","2","3","4"] -> ["((1+2)+3)+4", ...]
  */
 export function make10(
-  inputs: string[],
+  inputs: number[],
   allowableHugeTimeComplexity = false
 ): string[] {
   if (
@@ -19,12 +19,12 @@ export function make10(
     throw new Error("The length of the argument array must be '2 <= len <= 5'");
   }
 
-  if (inputs.some((i) => !/\d+/.test(i))) {
+  if (inputs.some((i) => !/\d+/.test(i.toString()))) {
     throw new Error("inputs must be numeric value");
   }
 
   // (1) all combinations
-  const rpns = allCombinations(inputs);
+  const rpns = allCombinations(inputs.map((i) => i.toString()));
 
   // (2) only RPN expressions whose result is 10
   const rpn10 = rpns.filter((rpn) => {

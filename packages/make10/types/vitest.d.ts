@@ -2,7 +2,7 @@
 import "vitest";
 
 interface CustomMatchers<R = unknown> {
-  toBeEvalResult<T>(expected: T): R;
+  toBeMisezanEval<T>(expected: T): R;
 }
 
 declare module "vitest" {
