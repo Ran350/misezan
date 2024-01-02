@@ -1,4 +1,4 @@
-import { evaluate } from "@ran350/misezan";
+import { evaluate } from "@repo/misezan";
 import type { FC } from "react";
 
 type Props = {
