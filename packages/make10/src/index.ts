@@ -10,7 +10,7 @@ import { rpn2infix } from "./rpn2infix";
  */
 export function make10(
   inputs: number[],
-  allowableHugeTimeComplexity = false
+  allowableHugeTimeComplexity = false,
 ): string[] {
   if (
     !allowableHugeTimeComplexity &&

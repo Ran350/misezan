@@ -9,7 +9,7 @@ type Props = {
 export const DigitInputs: FC<Props> = (props) => {
   const handleChange = (
     digit: number,
-    e: ChangeEvent<HTMLInputElement>
+    e: ChangeEvent<HTMLInputElement>,
   ): void => {
     const val = e.currentTarget.value;
     if (!val.match(/^[0-9]+$/)) return; // 1桁の数字以外は入力できないように

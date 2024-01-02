@@ -1,7 +1,5 @@
 {
   "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {},
-  "exclude": [
-    "node_modules",
-  ]
+  "exclude": ["node_modules"]
 }

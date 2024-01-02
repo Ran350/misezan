@@ -6,10 +6,18 @@ import { Display } from "./Display";
 import { Inputs } from "./Inputs";
 
 export const Calc = () => {
-  const [formula, setFormula] = useState<string[]>(["(1👁️1)👁️2"]);
+  const [formula, setFormula] = useState<string[]>([
+    "(",
+    "1",
+    "👁",
+    "1",
+    ")",
+    "👁",
+    "2",
+  ]);
 
   return (
-    <Card className="w-11/12 md:w-fit md:min-w-96 p-4 mx-auto">
+    <Card className="w-fit p-6 md:p-8">
       <Display formula={formula} />
       <Inputs formula={formula} setFormula={setFormula} />
     </Card>

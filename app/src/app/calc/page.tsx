@@ -10,16 +10,19 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <main className="flex flex-col gap-8 items-center justify-center w-full">
-        <section className="text-center">
-          <TypographyH4 className="text-gray-600">見せ算電卓</TypographyH4>
-          <p className="text-gray-500">
-            見せ算演算子を「👁️」とした五則演算に対応
-          </p>
-        </section>
+    <main className="p-4 flex flex-col items-center gap-4 w-full">
+      <section>
+        <TypographyH4 className="text-center text-gray-600">
+          見せ算電卓
+        </TypographyH4>
+        <p className="text-xs md:text-sm text-gray-400">
+          見せ算演算子を「👁️」とした五則演算 計算機
+        </p>
+      </section>
+
+      <div className="mx-auto">
         <Calc />
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

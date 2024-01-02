@@ -15,7 +15,7 @@ export const useMake10 = () => {
       newDigits[index] = value;
       setInputs(newDigits);
     },
-    [digits]
+    [digits],
   );
 
   const incrementDigit = useCallback(() => {
