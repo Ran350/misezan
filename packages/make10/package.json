@@ -16,9 +16,8 @@
     "@types/node": "^20.10.6",
     "eslint": "^8.56.0",
     "typescript": "^5.3.3",
-    "vite": "^5.0.10"
-  },
-  "dependencies": {
+    "vite": "^5.0.10",
     "vitest": "^1.1.0"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,37 +1,52 @@
+import { evaluate } from "@repo/misezan";
+import { Operator, operator } from "./operator";
+import { Rpn } from "./rpn";
+
 /**
  * @description RPN を計算
- * @returns 計算結果 or 不適切な入力なら undefined
+ * @returns 計算結果 or 不適切な入力なら null
  */
-export function calculateRpn(rpn: string): number | undefined {
+export function calculateRpn(rpn: Rpn): number | null {
   const stack: number[] = [];
 
-  const operators = ["+", "-", "*", "/"];
-  const separator = " ";
+  for (const element of rpn) {
+    // 数字
+    if (typeof element === "number") {
+      stack.push(element);
+    }
 
-  for (const str of rpn.split(separator)) {
-    if (operators.includes(str)) {
+    // 演算子
+    else if (Object.values<Operator>(operator).includes(element)) {
       const b = stack.pop();
       const a = stack.pop();
-      if (a === undefined || b === undefined) return;
-
-      const result = calc(a, str, b);
-      if (result === undefined) return;
-
+      if (a === undefined || b === undefined) return null;
+      const result = calc(a, element, b);
+      if (result === null) return null;
       stack.push(result);
-    } else {
-      stack.push(Number.parseInt(str));
+    }
+
+    // Invalid element
+    else {
+      throw new Error("Invalid element");
     }
   }
 
-  return stack.pop();
+  const ans = stack.pop();
+  return ans === undefined ? null : ans;
 }
 
-function calc(a: number, operator: string, b: number): number | undefined {
-  if (operator === "+") return a + b;
-  if (operator === "-") return a - b;
-  if (operator === "*") return a * b;
-  if (operator === "/") {
-    if (b === 0) return;
-    return a / b;
+function calc(a: number, op: Operator, b: number): number | null {
+  switch (op) {
+    case "+":
+      return a + b;
+    case "-":
+      return a - b;
+    case "*":
+      return a * b;
+    case "/":
+      if (b === 0) return null;
+      return a / b;
+    case "👁️":
+      return evaluate(a + "👁️" + b);
   }
 }

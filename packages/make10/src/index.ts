@@ -24,12 +24,12 @@ export function make10(
   }
 
   // (1) all combinations
-  const rpns = allCombinations(inputs.map((i) => i.toString()));
+  const rpns = allCombinations(inputs);
 
   // (2) only RPN expressions whose result is 10
   const rpn10 = rpns.filter((rpn) => {
     const result = calculateRpn(rpn);
-    if (result === undefined) return false;
+    if (result === null) return false;
     const TOLERANCE = 10 ** -8;
     return Math.abs(result - 10) < TOLERANCE;
   });
