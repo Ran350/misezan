@@ -51,8 +51,8 @@ function reduceDigits(nums: Rpn[]): Rpn[][] {
     (a, b) => [...a, ...b, operator.times],
     (a, b) => [...a, ...b, operator.divide],
     (a, b) => [...b, ...a, operator.divide],
-    (a, b) => [...a, ...b, operator.mise],
-    (a, b) => [...b, ...a, operator.mise],
+    // (a, b) => [...a, ...b, operator.mise],
+    // (a, b) => [...b, ...a, operator.mise],
   ];
 
   const result: Rpn[][] = [];
